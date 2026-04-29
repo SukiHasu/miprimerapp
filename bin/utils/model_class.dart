@@ -37,7 +37,7 @@ abstract class ModelClass {
     try {
       conn = await DataBase.obtenerConexion();
       var registro = await conn.query(
-        "SELECT * FROM $tableName WHERE $primaryKey= ?",[id]
+        "SELECT * FROM $tableName WHERE ${primaryKey().keys.first}= ?",[id]
       );
       return fromDataBase(registro.first);
     } catch (error) {
