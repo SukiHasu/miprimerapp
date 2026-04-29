@@ -38,10 +38,12 @@ abstract class DataBase {
 
   static Future<void> crearTablaUsers(MySqlConnection conn) async {
     await conn.query("""CREATE TABLE IF NOT EXISTS users(
-    id INT PRIMARY KEY AUTO_INCREMENT, 
+    idusuario INT PRIMARY KEY AUTO_INCREMENT, 
     nombre VARCHAR(20) NOT NULL, 
     nick VARCHAR(20) NOT NULL UNIQUE, 
-    password VARCHAR(20) NOT NULL)""");
+    password VARCHAR(20) NOT NULL,
+    monedas INT
+    )""");
   }
 
 

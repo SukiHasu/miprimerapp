@@ -3,37 +3,32 @@ import "entities/usuario.dart";
 import 'utils/utils.dart';
 
 void main() async {
-
   await DataBase.instalacion();
-  String menu= Navegacion.inicio;
+  String menu = Navegacion.inicio;
   while (true) {
     switch (menu) {
       case "principal":
-        menu =Navegacion.principal(); 
+        menu = Navegacion.principal();
         break;
-
 
       case "registro":
         menu = await Navegacion.registro();
-    break;
-
+        break;
 
       case "login":
+        menu = await Navegacion.login();
 
-      menu = await Navegacion.login();
-    
-      break;
+        break;
 
       case "home":
-     menu = Navegacion.home();
-      menu = "salir";
-      
-      case "Buscar":
-     menu = Navegacion.home();
-      menu = "salir";
+        menu = Navegacion.home();
+        break;
+      case "buscar":
+        menu = await Navegacion.buscar();
+        break;
     }
-    if (menu == "salir"){
-      print ("Has elegido salir, bye bye!!");
+    if (menu == "salir") {
+      print("Has elegido salir, bye bye!!");
       break;
     }
   }
